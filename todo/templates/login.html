@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    {% comment %}
+    <link href="{% static 'style.css' %}" rel="stylesheet" />
+    {% endcomment %}
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Todo App</title>
+  </head>
+  <style>
+    h4 {
+      color: red;
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="../">Todo App</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+        </ul>
+      </div>
+    </nav>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+    <h1>Login with your account</h1>
+    <form method="POST" action="login">
+      {% csrf_token %}
+      <p>Username:</p>
+      <input type="text" name="username" />
+      <p>Password:</p>
+      <input type="password" name="password" /><br /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
