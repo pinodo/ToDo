@@ -9,4 +9,5 @@ urlpatterns = [
     path('addlist', views.addlist, name='addlist'),
     path('viewlist', views.viewlist, name='viewlist'),
     path('viewstats', views.viewstats, name='viewstats'),
+    path('deletelist<str:pk>', views.deletelist, name='deletelist'),
 ]

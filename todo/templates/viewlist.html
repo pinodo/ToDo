@@ -26,7 +26,13 @@
         <div class="title">{{list.title}}</div>
         <div class="category">{{list.category}}</div>
         <div class="priority">{{list.priority}}</div>
-        <button method="post" action="deletelist">Delete</button>
+        <form method="post" action=" {% url 'deletelist' pk=list.pk %}">
+          {% csrf_token %}<input type="submit" value="Delete" />
+        </form>
+      </div>
+      {% empty %}
+      <div class="box">
+        <div class="title">No tasks found</div>
       </div>
       {% endfor %}
     </div>

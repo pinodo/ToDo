@@ -67,5 +67,7 @@ def viewlist(request):
 def viewstats(request):
     return render(request, 'viewstats.html')
 
-# def deletelist(request):
-#     if request.method == "POST":
+def deletelist(request, pk):
+    if request.method == "POST":
+        TodoLists.objects.filter(pk=pk).delete()
+        return redirect('viewlist')
