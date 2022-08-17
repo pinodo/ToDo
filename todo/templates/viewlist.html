@@ -1,0 +1,35 @@
+{% extends 'index.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {% block css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/viewlist.css' %}"
+    />
+    {% endblock %}
+    <title>{% block title %}Add List{% endblock %}</title>
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="wrapper">
+      {% for list in lists %}
+      <div class="box">
+        <div class="title">{{list.title}}</div>
+        <div class="category">{{list.category}}</div>
+        <div class="priority">{{list.priority}}</div>
+        <button method="post" action="deletelist">Delete</button>
+      </div>
+      {% endfor %}
+    </div>
+    {% endblock %}
+  </body>
+</html>

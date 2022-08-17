@@ -1,0 +1,50 @@
+{% extends 'index.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Static CSS files -->
+    {% block css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/addlist.css' %}"
+    />
+    {% endblock %}
+    <title>{% block title %}Add List{% endblock %}</title>
+  </head>
+  <body>
+    {% block pagecontent %}
+    <h1 class="header">Add Lists</h1>
+    <div class="container">
+      <form method="post" action="addlist">
+        {% csrf_token %}
+        <h5>Title:</h5>
+        <input type="text" name="title" placeholder="Enter the title" /><br />
+        <h5>Category:</h5>
+        <select name="category">
+          <option>Money</option>
+          <option>Language</option>
+          <option>Habit</option>
+          <option>Job</option>
+          <option>Lifestyle</option></select
+        ><br />
+        <h5>Priority:</h5>
+        <select name="priority">
+          <option>1: Important, Urgent</option>
+          <option>2: Important, Not urgent</option>
+          <option>3: Not important, Urgent</option>
+          <option>4: Not important, Not urgent</option></select
+        ><br /><br />
+        <input type="submit" />
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>

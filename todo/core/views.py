@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from .models import TodoLists
 
 # Create your views here.
 def index(request):
@@ -47,3 +48,24 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def addlist(request):
+    if request.method == "POST":
+        title = request.POST['title']
+        category = request.POST['category']
+        priority = request.POST['priority']
+        todolist = TodoLists.objects.create(title=title, category=category, priority=priority)
+        todolist.save()
+        return redirect('viewlist')
+    else:
+        return render(request, 'addlist.html')
+
+def viewlist(request):
+    lists = TodoLists.objects.all()
+    return render(request, 'viewlist.html', {'lists': lists})
+
+def viewstats(request):
+    return render(request, 'viewstats.html')
+
+# def deletelist(request):
+#     if request.method == "POST":

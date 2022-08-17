@@ -1,0 +1,22 @@
+body {
+  background-color: antiquewhite;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  margin-top: 3rem;
+  width: 50%;
+}
+
+form {
+  padding: 2rem;
+  border: 1px solid;
+}
+
+input,
+select {
+  border: 1px red;
+}

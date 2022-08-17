@@ -1,0 +1,33 @@
+{% extends 'index.html' %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {% block css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/viewstats.css' %}"
+    />
+    {% endblock %}
+    <title>{% block title %}View Stats{% endblock %}</title>
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="d-flex flex-column">
+      <div class="p-2">Stats</div>
+      <div class="p-2">Stats</div>
+      <div class="p-2">Stats</div>
+      <div class="p-2">Stats</div>
+      <div class="p-2">Stats</div>
+      <div class="p-2">Stats</div>
+    </div>
+    {% endblock %}
+  </body>
+</html>
